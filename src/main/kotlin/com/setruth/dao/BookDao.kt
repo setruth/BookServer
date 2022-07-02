@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
 import org.springframework.stereotype.Component
 
-@Component
 @Mapper
 interface BookDao {
     @Insert("insert into book_content values(null,#{bookName},#{author},#{issueDate},#{update},#{issuePosition},#{briefContent},#{wordsNumber},#{coverImg})")

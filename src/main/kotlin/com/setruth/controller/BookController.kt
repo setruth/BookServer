@@ -24,6 +24,12 @@ class BookController {
     @Autowired
     private lateinit var bookServiceImpl: BookServiceImpl
 
+    /**
+     * TODO 保存新的书籍信息
+     *
+     * @param bookInfo 新的数据信息
+     * @return  处理结果
+     */
     @PostMapping
     fun save(@RequestBody bookInfo: BookInfo):Result{
         val res=bookServiceImpl.update(bookInfo)
@@ -34,6 +40,12 @@ class BookController {
         }
     }
 
+    /**
+     * TODO 更新书本信息
+     *
+     * @param bookInfo 新的书本信息
+     * @return 返回处理结果
+     */
     @PutMapping
     fun update(@RequestBody bookInfo: BookInfo): Result{
         return if (bookServiceImpl.update(bookInfo)){
@@ -43,6 +55,12 @@ class BookController {
         }
     }
 
+    /**
+     * TODO 删除书籍信息
+     *
+     * @param id 书籍的id
+     * @return
+     */
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Int):Result{
         return if (bookServiceImpl.delete(id)){
@@ -52,6 +70,12 @@ class BookController {
         }
     }
 
+    /**
+     * TODO 根据id获取书籍信息
+     *
+     * @param id 书籍的id
+     * @return
+     */
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Int): Result{
         val book = bookServiceImpl.getById(id)
@@ -62,6 +86,11 @@ class BookController {
         }
     }
 
+    /**
+     * TODO 获取全部的书籍
+     *
+     * @return
+     */
     @GetMapping
     fun getAll(): Result{
         val all = bookServiceImpl.getAll()
