@@ -31,6 +31,8 @@ dependencies {
     //数据库依赖
     implementation("mysql:mysql-connector-java:8.0.29")
     implementation("com.alibaba:druid:1.2.11")
+    //jwt依赖
+    implementation("com.auth0:java-jwt:3.18.2")
 
 
 }
