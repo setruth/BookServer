@@ -5,13 +5,13 @@ class  BookInfo(
     var bookName: String,
     var author: String,
     var issueDate: Int,
-    var update: Int,
+    var updateDate: Int,
     var issuePosition: String,
     var briefContent: String,
     var wordsNumber: Int
 ) {
     var coverImg:Int=0
     override fun toString(): String {
-        return "BookInfo(id=$id, bookName='$bookName', author='$author', issueDate=$issueDate, update=$update, issuePosition='$issuePosition', briefContent='$briefContent', wordsNumber=$wordsNumber, coverImg=$coverImg)"
+        return "BookInfo(id=$id, bookName='$bookName', author='$author', issueDate=$issueDate, update=$updateDate, issuePosition='$issuePosition', briefContent='$briefContent', wordsNumber=$wordsNumber, coverImg=$coverImg)"
     }
 }

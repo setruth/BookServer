@@ -1,6 +1,7 @@
 package com.setruth.dao
 
 import com.setruth.domain.AdminInfo
+import com.setruth.domain.BookInfo
 import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
@@ -36,6 +37,16 @@ interface AdminDao {
      */
     @Select("select * from admin where id = #{id}")
     fun getInfoById(id:Int):AdminInfo?
+
+    /**
+     * TODO 更新登录时间
+     *
+     * @param time
+     * @param id
+     * @return
+     */
+    @Update("update admin set last_login_time=#{time} where id=#{id}")
+    fun updateLoginTime(time:Int,id: Int):Boolean
 
 
 }
