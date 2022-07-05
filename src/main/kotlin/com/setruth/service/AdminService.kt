@@ -1,5 +1,6 @@
 package com.setruth.service
 
+import com.setruth.domain.AdminInfo
 import com.setruth.pojo.LoginInfo
 import javax.print.DocFlavor.STRING
 
@@ -38,4 +39,13 @@ interface AdminService {
      * @return true过期，false没有过期
      */
     fun judgeToken(token:String):Boolean
+
+    /**
+     * TODO 根据id获取用户信息
+     *
+     * @param id
+     * @return
+     */
+     fun getInfoById(id:Int):AdminInfo?
+
 }

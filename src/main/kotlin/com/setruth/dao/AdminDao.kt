@@ -1,6 +1,7 @@
 package com.setruth.dao
 
 import com.setruth.domain.AdminInfo
+import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
 import org.apache.ibatis.annotations.Update
@@ -20,11 +21,21 @@ interface AdminDao {
     /**
      * TODO 更新密码信息
      *
-     * @param id
+     * @param id 管理员的id
      * @param newPwd
      * @return
      */
     @Update("update admin set password = #{newPwd} where id =#{id}")
     fun changePwd(id:Int,newPwd:String):Boolean
+
+    /**
+     * TODO 获取管理员信息根据id
+     *
+     * @param id
+     * @return
+     */
+    @Select("select * from admin where id = #{id}")
+    fun getInfoById(id:Int):AdminInfo?
+
 
 }

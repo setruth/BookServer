@@ -1,7 +1,7 @@
 package com.setruth.controller
 
 import com.setruth.domain.BookInfo
-import com.setruth.pojo.DaoResStatusConst
+import com.setruth.pojo.ResStatusCode
 import com.setruth.pojo.Result
 import com.setruth.service.impl.BookServiceImpl
 import org.springframework.beans.factory.annotation.Autowired
@@ -34,9 +34,9 @@ class BookController {
     fun save(@RequestBody bookInfo: BookInfo):Result{
         val res=bookServiceImpl.update(bookInfo)
         return if (res){
-            Result(DaoResStatusConst.SAVE_OK,"操作成功",null)
+            Result(ResStatusCode.SAVE_OK,"操作成功",null)
         }else{
-            Result(DaoResStatusConst.SAVE_ERROR,"操作失败",null)
+            Result(ResStatusCode.SAVE_ERROR,"操作失败",null)
         }
     }
 
@@ -49,9 +49,9 @@ class BookController {
     @PutMapping
     fun update(@RequestBody bookInfo: BookInfo): Result{
         return if (bookServiceImpl.update(bookInfo)){
-            Result(DaoResStatusConst.UPDATE_OK,"操作成",null)
+            Result(ResStatusCode.UPDATE_OK,"操作成",null)
         }else{
-            Result(DaoResStatusConst.UPDATE_ERROR,"操作失败",null)
+            Result(ResStatusCode.UPDATE_ERROR,"操作失败",null)
         }
     }
 
@@ -64,9 +64,9 @@ class BookController {
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Int):Result{
         return if (bookServiceImpl.delete(id)){
-            Result(DaoResStatusConst.DEL_OK,"操作成功",null)
+            Result(ResStatusCode.DEL_OK,"操作成功",null)
         }else{
-            Result(DaoResStatusConst.DEL_ERROR,"操作失败",null)
+            Result(ResStatusCode.DEL_ERROR,"操作失败",null)
         }
     }
 
@@ -80,9 +80,9 @@ class BookController {
     fun getById(@PathVariable id: Int): Result{
         val book = bookServiceImpl.getById(id)
         return if (book!=null){
-            Result(DaoResStatusConst.GET_BY_ID_OK,"操作成功",book)
+            Result(ResStatusCode.GET_BY_ID_OK,"操作成功",book)
         }else{
-            Result(DaoResStatusConst.GET_BY_ID_ERROR,"操作失败",null)
+            Result(ResStatusCode.GET_BY_ID_ERROR,"操作失败",null)
         }
     }
 
@@ -95,9 +95,9 @@ class BookController {
     fun getAll(): Result{
         val all = bookServiceImpl.getAll()
         return if (all!=null){
-            Result(DaoResStatusConst.GET_ALL_OK,"操作成功",all)
+            Result(ResStatusCode.GET_ALL_OK,"操作成功",all)
         }else{
-            Result(DaoResStatusConst.GET_ALL_ERROR,"操作失败",null)
+            Result(ResStatusCode.GET_ALL_ERROR,"操作失败",null)
         }
     }
 }
