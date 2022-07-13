@@ -28,20 +28,13 @@ class AdminServiceImpl : AdminService {
         }
     }
 
-    override fun changePwd(token: String, id: Int, newPwd: String): Boolean {
-        val res = adminDao.changePwd(id, newPwd)
-        return res
-    }
-
-    override fun getToken(id: Int): String {
-        return "123"
-    }
-
-    override fun judgeToken(token: String): Boolean {
-        return true
-    }
+    override fun changePwd(id: Int, newPwd: String): Boolean = adminDao.changePwd(id, newPwd)
 
     override fun getInfoById(id: Int): AdminInfo? =adminDao.getInfoById(id)
 
+    override fun updateLoginTime(id: Int): Boolean {
+        val nowTime = System.currentTimeMillis()
+        return adminDao.updateLoginTime(id,nowTime)
+    }
 
 }

@@ -12,6 +12,11 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    // https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
+    implementation("commons-fileupload:commons-fileupload:1.3.3")
+// https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation("commons-io:commons-io:2.4")
+
     testImplementation(kotlin("test"))
     //springMVC依赖
     implementation("org.springframework:spring-webmvc:5.3.20")
@@ -27,6 +32,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     //测试依赖
     testImplementation("junit:junit:4.13.2")
+    // https://mvnrepository.com/artifact/org.springframework/spring-test
+    testImplementation("org.springframework:spring-test:5.3.20")
+
 //    implementation("org.springframework.spring-test:3.1.2.RELEASE")
     //数据库依赖
     implementation("mysql:mysql-connector-java:8.0.29")

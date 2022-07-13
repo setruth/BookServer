@@ -16,29 +16,13 @@ interface AdminService {
     /**
      * TODO 修改密码
      *
-     * @param token token令牌
      * @param id 管理员id
      * @param newPwd 新密码
      * @return
      */
 
-    fun changePwd(token:String,id:Int,newPwd:String):Boolean
+    fun changePwd(id:Int,newPwd:String):Boolean
 
-    /**
-     * TODO 获取账户token
-     *
-     * @param id 账户的id
-     * @return
-     */
-    fun getToken(id: Int):String
-
-    /**
-     * TODO 判断token是否过期
-     *
-     * @param token
-     * @return true过期，false没有过期
-     */
-    fun judgeToken(token:String):Boolean
 
     /**
      * TODO 根据id获取用户信息
@@ -48,4 +32,11 @@ interface AdminService {
      */
      fun getInfoById(id:Int):AdminInfo?
 
+    /**
+     * TODO 更新登录时间
+     *
+     * @param id
+     * @return
+     */
+    fun updateLoginTime(id:Int):Boolean
 }

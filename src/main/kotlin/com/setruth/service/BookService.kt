@@ -42,4 +42,23 @@ interface BookService {
      * @return 全部的数据
      */
     fun getAll(): MutableList<BookInfo>?
+
+    /**
+     * TODO 获取书籍的数量
+     *
+     */
+    fun getBookCount():Int
+
+    /**
+     * TODO 获取书本分类信息
+     *
+     * @param bookList
+     * @return
+     */
+    fun getClassification(bookList:MutableList<BookInfo>):MutableMap<String,Int>
+    /**
+     * TODO 重置自增的id
+     *
+     */
+    fun resetId()
 }

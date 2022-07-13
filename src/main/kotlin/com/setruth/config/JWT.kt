@@ -12,10 +12,6 @@ import org.springframework.context.annotation.PropertySource
 open class JWT {
     @Value("\${tokenPrefix}")
     lateinit var tokenPrefix:String
-    @Value("\${header.type}")
-    lateinit var headerType:String
-    @Value("\${header.alg}")
-    lateinit var headerAlg:String
     @Value("\${playLoad.iss}")
     lateinit var playLoadIss:String
     @Value("\${playLoad.expireTime}")

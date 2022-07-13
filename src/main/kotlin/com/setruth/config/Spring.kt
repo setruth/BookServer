@@ -2,6 +2,8 @@ package com.setruth.config
 
 import com.setruth.pojo.JWTConfig
 import org.springframework.context.annotation.*
+import org.springframework.web.multipart.MultipartResolver
+import org.springframework.web.multipart.support.StandardServletMultipartResolver
 
 
 @Configuration

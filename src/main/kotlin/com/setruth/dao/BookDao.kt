@@ -2,17 +2,23 @@ package com.setruth.dao
 
 import com.setruth.domain.BookInfo
 import org.apache.ibatis.annotations.*
-import org.springframework.stereotype.Component
 
 @Mapper
 interface BookDao {
+
+    /**
+     * TODO 重置自增的id
+     *
+     */
+    @Update("alter table book_content auto_increment=1;")
+    fun resetId()
 
     /**
      * TODO 新增图书
      *
      * @param bookInfo
      */
-    @Insert("insert into book_content values(null,#{bookName},#{author},#{issueDate},#{update},#{issuePosition},#{briefContent},#{wordsNumber},#{coverImg})")
+    @Insert("insert into book_content values(null,#{bookName},#{author},#{issueDate},#{issuePosition},#{briefContent},#{wordsNumber},#{coverImg})")
     fun addBook(bookInfo: BookInfo)
 
     /**
@@ -39,15 +45,15 @@ interface BookDao {
      * @return
      */
     @Delete("delete from book_content where id=#{id} ")
-    fun deleteBookById(id:Int):Boolean
-
+    fun deleteBookById(id: Int): Boolean
+//    alter table sys_user auto_increment=1;
     /**
      * TODO 更新书本信息
      *
      * @param bookInfo
      * @return
      */
-    @Update("update book_content set  where book_name=#{bookName},author=#{author},issue_date=#{issueDate},update_date=#{updateDate},issue_position=#{issuePosition},brief_content=#{briefContent},words_number=#{wordsNumber},cover_img=#{coverImg} where id=#{id}")
-    fun updateBookInfoById(bookInfo: BookInfo):Boolean
+    @Update("update book_content set  bookName=#{bookName},author=#{author},issueDate=#{issueDate},classification=#{classification},issuePosition=#{issuePosition},briefContent=#{briefContent},wordsNumber=#{wordsNumber} where id=#{id}")
+    fun updateBookInfo(bookInfo: BookInfo): Boolean
 
 }

@@ -4,6 +4,7 @@ import com.setruth.domain.AdminInfo
 import com.setruth.domain.BookInfo
 import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Mapper
+import org.apache.ibatis.annotations.Param
 import org.apache.ibatis.annotations.Select
 import org.apache.ibatis.annotations.Update
 
@@ -27,7 +28,7 @@ interface AdminDao {
      * @return
      */
     @Update("update admin set password = #{newPwd} where id =#{id}")
-    fun changePwd(id:Int,newPwd:String):Boolean
+    fun changePwd(@Param("id")id:Int,@Param("newPwd") newPwd:String):Boolean
 
     /**
      * TODO 获取管理员信息根据id
@@ -45,8 +46,8 @@ interface AdminDao {
      * @param id
      * @return
      */
-    @Update("update admin set last_login_time=#{time} where id=#{id}")
-    fun updateLoginTime(time:Int,id: Int):Boolean
+    @Update("update admin set last_login_time = #{nowTime} where id = #{id}")
+    fun updateLoginTime(@Param("id")id: Int,@Param("nowTime")nowTime:Long):Boolean
 
 
 }

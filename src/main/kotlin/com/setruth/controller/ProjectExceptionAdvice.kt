@@ -3,9 +3,11 @@ package com.setruth.controller
 import com.setruth.exception.SystemException
 import com.setruth.exception.TokenException
 import com.setruth.pojo.Result
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
+@CrossOrigin
 @RestControllerAdvice
 class ProjectExceptionAdvice {
     @ExceptionHandler(SystemException::class)
