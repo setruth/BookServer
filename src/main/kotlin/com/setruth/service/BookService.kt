@@ -5,7 +5,7 @@ import com.setruth.domain.BookInfo
 
 interface BookService {
     /**
-     * TODO 保存
+     * TODO 添加新的书籍
      *
      * @param bookInfo
      * @return 是否成功
@@ -61,4 +61,12 @@ interface BookService {
      *
      */
     fun resetId()
+
+    /**
+     * TODO 更新封面
+     *
+     * @param id
+     * @param coverImg
+     */
+    fun updateCoverImg(id:Int,coverImg:String)
 }

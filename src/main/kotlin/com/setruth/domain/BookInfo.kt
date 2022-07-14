@@ -3,14 +3,14 @@ package com.setruth.domain
 
 class  BookInfo() {
     var id: Int = 0
-    var bookName: String=""
-    var author: String=""
+    var bookName: String?=null
+    var author: String?=null
     var issueDate: Long = 0
-    var classification: String = ""
-    var issuePosition: String = ""
-    var briefContent: String = ""
-    var wordsNumber: Int = 0
-    var read: Int? = null
+    var classification: String=""
+    var issuePosition: String?=null
+    var briefContent: String?=null
+    var wordsNumber: Int?=null
+    var read: Int = 0
     var imgCover: String? = null
 
     constructor(
@@ -22,7 +22,7 @@ class  BookInfo() {
         issuePosition: String,
         briefContent: String,
         wordsNumber: Int,
-        read: Int?,
+        read: Int,
         imgCover: String?
     ) : this() {
         this.id = id

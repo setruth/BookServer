@@ -18,7 +18,8 @@ interface BookDao {
      *
      * @param bookInfo
      */
-    @Insert("insert into book_content values(null,#{bookName},#{author},#{issueDate},#{issuePosition},#{briefContent},#{wordsNumber},#{coverImg})")
+    @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
+    @Insert("insert into book_content values(null,#{bookName},#{author},#{issueDate},#{classification},#{issuePosition},#{briefContent},#{wordsNumber},#{read},#{imgCover})")
     fun addBook(bookInfo: BookInfo)
 
     /**
@@ -56,4 +57,12 @@ interface BookDao {
     @Update("update book_content set  bookName=#{bookName},author=#{author},issueDate=#{issueDate},classification=#{classification},issuePosition=#{issuePosition},briefContent=#{briefContent},wordsNumber=#{wordsNumber} where id=#{id}")
     fun updateBookInfo(bookInfo: BookInfo): Boolean
 
+    /**
+     * TODO 更新封面图片
+     *
+     * @param id
+     * @param coverImg
+     */
+    @Update("update book_content set imgCover=#{coverImg} where id=#{id}")
+    fun updateBookCoverImg(@Param("id") id:Int,@Param("coverImg") coverImg:String)
 }

@@ -70,8 +70,7 @@ class AdminController {
     @PutMapping
     fun changePwd(@RequestHeader(value = "token") token:String, @RequestBody newPwd:String):Result{
         val id = jwtUtil.validateToken(token)
-        val res = adminServiceImpl.changePwd(id, newPwd)
-        if (res){
+        if (adminServiceImpl.changePwd(id, newPwd)){
             return Result(ResStatusCode.CHANGE_PWD_OK,"修改密码成功",null)
         }else{
             return Result(ResStatusCode.CHANGE_PWD_ERROR,"修改失败",null)

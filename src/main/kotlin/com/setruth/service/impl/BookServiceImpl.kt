@@ -43,6 +43,8 @@ class BookServiceImpl :BookService {
         return map
     }
 
+    override fun updateCoverImg(id: Int, coverImg: String) =bookDao.updateBookCoverImg(id,coverImg)
+
     override fun resetId() {
         bookDao.resetId()
     }

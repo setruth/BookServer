@@ -14,19 +14,22 @@ object ResStatusCode {
     const val UPDATE_OK = 203
     const val GET_BY_ID_OK = 204
     const val GET_ALL_OK = 205
+    const val UPDATE_COVER_IMG_OK = 206
+
 
     const val SAVE_ERROR = 501
-    const val DEL_ERROR = 2502
+    const val DEL_ERROR = 502
     const val UPDATE_ERROR = 503
     const val GET_BY_ID_ERROR = 504
     const val GET_ALL_ERROR = 505
+    const val NOT_FOUND_COVER_IMG=506
+    const val UPDATE_COVER_IMG_ERROR=507
 
     /**
      *  TODO 管理员状态码
      */
     const val LOGIN_OK = 211
     const val FIND_INFO_OK = 212
-    const val TOKEN_VALIDATE_OK = 213
     const val CHANGE_PWD_OK = 214
     const val UPDATE_TOKEN_OK=215
     const val UPDATE_LOGIN_TIME_OK=216
