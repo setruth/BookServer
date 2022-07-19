@@ -14,7 +14,6 @@ import javax.sql.DataSource
 open class Mybatis {
 
 
-    @Bean
     open fun dataSource():DataSource {
         val druidDataSource= DruidDataSource()
         println("jdbc驱动${JdbcConfig.DRIVER}")
